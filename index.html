@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title>learnvue2</title>
+    <style>
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p,h3,ul{
+             margin: 0;
+             padding: 0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding:10px 20px ;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background: #ff9ed2;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>vue to the world</h1>
+    <div id="app">
+    
+        <!--atribute-->
+        <Div>
+            <div v-if="showBook"> 
+                <ul>
+                <li @click="toglechange(book)" v-for="book in filterdBooks" :class="{fav:book.isFav}">
+                    <img :src="book.name" :alt="book.img">
+                <h3>{{book.name}}
+                </h3>
+                <p>{{book.auther}}</p>
+            </li>
+        </ul>
+            </div>
+            <button @click="togleshowBook">
+                <span v-if="showBook">hide book</span>
+                <span v-else>show book</span>
+           
+        </Div>
+        
+    </div>
+    <script src="app.js"></script>
+    
+</body>
+</html>
